@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Super Mario Joy! 🌟</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game-wrapper">
+    <!-- Top HUD -->
+    <div id="hud">
+      <div class="hud-card">
+        <span class="hud-label">MARIO</span>
+        <span id="hud-score" class="hud-value">000000</span>
+      </div>
+      <div class="hud-card">
+        <span class="hud-label">COINS 🪙</span>
+        <span id="hud-coins" class="hud-value">x00</span>
+      </div>
+      <div class="hud-card">
+        <span class="hud-label">WORLD 🌍</span>
+        <span id="hud-world" class="hud-value">1-1</span>
+      </div>
+      <div class="hud-card">
+        <span class="hud-label">TIME ⏱️</span>
+        <span id="hud-time" class="hud-value">400</span>
+      </div>
+      <div class="hud-card">
+        <span class="hud-label">LIVES ❤️</span>
+        <span id="hud-lives" class="hud-value">x3</span>
+      </div>
+      <div class="hud-controls">
+        <button id="btn-music" class="icon-btn" title="Toggle Music (M)">🎵 ON</button>
+        <button id="btn-restart" class="icon-btn" title="Restart Level (R)">🔄</button>
+      </div>
+    </div>
+
+    <!-- Main Canvas -->
+    <div id="canvas-container">
+      <canvas id="gameCanvas" width="1024" height="576"></canvas>
+
+      <!-- Start / Title Overlay -->
+      <div id="overlay-screen" class="overlay active">
+        <div class="modal-card">
+          <div class="title-badge">SUPER WONDER EDITION</div>
+          <h1 class="game-title">
+            <span class="c-red">S</span><span class="c-yellow">U</span><span class="c-blue">P</span><span class="c-green">E</span><span class="c-red">R</span>
+            <span class="c-yellow">M</span><span class="c-blue">A</span><span class="c-green">R</span><span class="c-red">I</span><span class="c-yellow">O</span>
+            <span class="c-pink">J</span><span class="c-cyan">O</span><span class="c-yellow">Y</span><span class="c-red">!</span>
+          </h1>
+          <p class="subtitle">A Bouncy, Musical, Living Platformer World!</p>
+          <div class="level-select">
+            <button class="lvl-btn selected" data-level="0">🌻 1-1 Sunny Meadow</button>
+            <button class="lvl-btn" data-level="1">🌈 1-2 Sky Carnival</button>
+            <button class="lvl-btn" data-level="2">🎆 1-3 Starlight Fiesta</button>
+          </div>
+          <div class="controls-grid">
+            <div><kbd>←</kbd> <kbd>→</kbd> or <kbd>A</kbd> <kbd>D</kbd> Move</div>
+            <div><kbd>Space</kbd> / <kbd>W</kbd> / <kbd>↑</kbd> Jump (Hold for higher!)</div>
+            <div><kbd>Shift</kbd> / <kbd>X</kbd> / <kbd>J</kbd> Sprint &amp; Fireball 🔥</div>
+            <div><kbd>↓</kbd> / <kbd>S</kbd> Ground Pound (in air)</div>
+          </div>
+          <button id="btn-play" class="play-btn">✨ PRESS START ✨</button>
+        </div>
+      </div>
+
+      <!-- Victory / Level Complete Overlay -->
+      <div id="victory-screen" class="overlay">
+        <div class="modal-card victory-card">
+          <h2 id="victory-title" class="victory-heading">COURSE CLEAR! 🎉</h2>
+          <p id="victory-stats" class="victory-sub">Score: 0 | Coins: 0</p>
+          <div class="victory-actions">
+            <button id="btn-next-level" class="play-btn">NEXT WORLD ➡️</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Helper Bar -->
+    <div id="footer-bar">
+      <span>💡 <b>Tip:</b> Hit <span class="badge-q">?</span> blocks for Mushrooms 🍄, Fire Flowers 🌸, and Rainbow Stars ⭐! Jump on springs 弹簧 and baddies!</span>
+    </div>
+  </div>
+
+  <script src="audio.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
